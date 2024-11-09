@@ -6,6 +6,11 @@ Many changes, including bug fixes and documentation improvements can be implemen
 
 Some changes though are "substantial", and we ask that these be put through a bit of a design process and produce a consensus among the ReScript core team.
 
+> [!NOTE]
+> The RFC process is not the only way to contribute to ReScript. It is an "optional" way for contributors who prefer a more formal approach.
+>
+> However, it does help to organize your proposal more understandable and collaborate transparently.
+
 ## When to follow this process
 
 You should consider using this process if you intend to make "substantial" changes to ReScript or its documentation. Some examples that would benefit from an RFC are:
