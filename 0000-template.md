@@ -5,21 +5,21 @@ RFC PR: (leave this empty)
 ReScript Issue: (leave this empty)
 ---
 
-# Summary
+## Summary
 
 Brief explanation of the feature.
 
-# Motivation
+## Motivation
 
 Why are we doing this? What use cases does it support? What is the expected outcome?
 
 Please focus on explaining the motivation so that if this RFC is not accepted, the motivation could be used to develop alternative solutions. In other words, enumerate the constraints you are trying to solve without coupling them too closely to the solution you have in mind.
 
-# Detailed design
+## Detailed design
 
 This is the bulk of the RFC. Explain the design in enough detail for somebody familiar with ReScript to understand, and for somebody familiar with the implementation to implement. This should get into specifics and corner-cases, and include examples of how the feature is used. Any new terminology should be defined here.
 
-# Drawbacks
+## Drawbacks
 
 Why should we not do this? Please consider:
 
@@ -31,14 +31,14 @@ Why should we not do this? Please consider:
 
 There are tradeoffs to choosing any path. Attempt to identify them here.
 
-# Rationale and alternatives
+## Rationale and alternatives
 
 - Why is this design the best in the space of possible designs?
 - What other designs have been considered and what is the rationale for not choosing them?
 - What is the impact of not doing this?
 - If this is a language proposal, could this be done in a library instead?
 
-# Prior art
+## Prior art
 
 Discuss prior art, both the good and the bad, in relation to this proposal. A few examples of what this can include are:
 
@@ -51,15 +51,15 @@ This section is intended to encourage you as an author to think about the lesson
 
 Note that while precedent set by other languages is some motivation, it does not on its own motivate an RFC.
 
-# Adoption strategy
+## Adoption strategy
 
 If we implement this proposal, how will existing ReScript developers adopt it? Is this a breaking change? What is the migration plan? Should we coordinate with other projects or libraries?
 
-# Unresolved questions
+## Unresolved questions
 
 Optional, but suggested for first drafts. What parts of the design are still TBD?
 
-# Future posibilities
+## Future posibilities
 
 Think about what the natural extension and evolution of your proposal would be and how it would affect the language and project as a whole in a holistic way. Try to use this section as a tool to more fully consider all possible interactions with the project and language in your proposal.
 
