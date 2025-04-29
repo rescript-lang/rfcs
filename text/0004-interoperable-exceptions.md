@@ -1,7 +1,7 @@
 ---
 Feature Name: interoperable-exceptions
-Start Date: (fill me in with today's date, YYYY-MM-DD)
-RFC PR: (leave this empty)
+Start Date: 2025-04-30
+RFC PR: https://github.com/rescript-lang/rfcs/pull/4
 ReScript Issue: (leave this empty)
 ---
 
