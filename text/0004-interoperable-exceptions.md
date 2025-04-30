@@ -78,7 +78,8 @@ try {
     // exn here should safely be coerced to `Error` instance.
     console.log("recover from " + error.name);
     result = "recovered"; 
+  } else {
+    throw exn;
   }
-  throw exn;
 }
 ```
