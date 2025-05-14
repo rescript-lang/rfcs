@@ -85,31 +85,36 @@ Simply by allowing customization of the runtime type checking, we can make ReScr
 
 ### Syntax
 
-There is optional `when` clause after the `exception` declaration.
+There is an optional `@check` attribute in `exception` declarations.
 
-```
-exception Constructor(type_binding) when let_binding
+```res
+@check(coerce_function)
+exception Constructor(type_binding)
 ```
 
 An exception constructor with a `when` clause can have only one payload.
 
 ```res
-exception Valid(t1) when fn
-exception Invalid(t1, t2) when fn 
+@check(fn) exception Valid(t1)
+@check(fn) exception Invalid(t1, t2)
 ```
 
-And the identifier in the `when` clause must be a valid binding with type `unknown => bool`.
+And the identifier in the `@check` attribute must be a valid binding with type `unknown => bool`.
 
 #### Keyword considerations
 
-Keywords are only used in the context of exceptions, so we are free to choose them.
+We could introduce new keyword instead of using the attribute. Any keywords are fine, as it only used in the exception declarations grammar.
+
+Example:
+
+```res
+exception Constructor(type_binding) when let_binding
+```
 
 - `when`: Highlighting works because we've used it in old syntax.
 - `if`: It would be suitable for reducing the number of tokens, but it can be confusing because it looks different from an if expression grammar. 
 - `with`
 - `using`
-
-Or use an atribute like `@check(fn)`.
 
 ### Semantics
 
@@ -118,7 +123,8 @@ The compiler uses the function in the `when` clause to determine if the caught v
 ```res
 external isJsError: unknown => bool = "Error.isError"
 
-exception JsError(JsError.t) when isJsError
+@check(isJsError)
+exception JsError(JsError.t)
 
 let throwJsError: unit => string = %raw(`() => {
   throw new Error();
@@ -163,11 +169,12 @@ So this proposal could become the default semantics for exceptions if the existi
 
 ```res
 exception ResError // This uses "unit" payload type implicitly
-exception ResError(t) // Omit `when` clause to use primitive assertion (e.g. `isReScriptException`)
+exception ResError(t) // Omit `@check` attribute to use primitive (e.g. `isRescriptException`)
 exception ResError(t, t)
                  // ^ Gonna be syntax error 
 
-exception JsError(JsError.t) when JsError.isJsError
+@check(JsError.isJsError)
+exception JsError(JsError.t)
 
 let result = try {
   throwError()
@@ -185,7 +192,7 @@ let result;
 try {
   result = throwError();
 } catch (exn) {
-  if (Primitive_exceptions.isReScriptException(
+  if (Primitive_exceptions.isRescriptException(
     exn,
     // Compiler can pass additional arguments for internal usage.
     Symbol.for("Module.ResError"),
